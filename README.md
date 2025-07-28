@@ -11,9 +11,9 @@ Skills Learned
 - User account Creation and Management
 - Understanting Organizational Units
 
-  Tools Used
-  - Virtual Box for both the Windows 11 virtual machine as well as the Windows Server 2022
-  - PowerShell for Automation
-  - Sysmon for Monitoring and Logging
+Tools Used
+- Virtual Box for both the Windows 11 virtual machine as well as the Windows Server 2022
+- PowerShell for Automation
+- Sysmon for Monitoring and Logging
  
-    Steps will be in the Write Up portion 
+Steps will be in the Write Up portion 
