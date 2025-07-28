@@ -1,0 +1,419 @@
+Purpose of the Project
+
+Active Directory in my opinion is one of the most crucial project to learn. Since it is quite literally used in over 90% of Fortune 1000 companies all over the United States. Being able to learn and master Active Directory would be expanding your knowledge and will give you an advantage compared to someone else that hasn’t worked on a project of this sort. To take advantage I have decided to take some time to learn more about active directory, and fully immerse myself into the world of IT. Always having that learning and building mindset in order for me to prepare me for a future job!
+
+What is Active Directory (AD)?
+
+In simple terms Active Directory offers a wide variety of services to aid the administrations of an IT network. They run on Windows Servers which act as the domain controller and also enables the administrators to manage permissions and also have access to network resources as well. You have probably seen this before if you had a job working in corporate, but if not Welcome to my Post. I will explain how I was able to essentially mimic a real life work environment in a virtual environment.
+
+General Steps of the Project
+
+Download Virtual Box
+Download Windows 10 ISO as well as Windows Server ISO
+Create the first Virtual Machine as the Domain Controller
+Give the first Virtual Machine 2 Network Adapters. One connecting to the outside internet and the other connecting to internal private network.
+Once the VM is created install the Windows Server ISO
+Assign the IP addressing for the internal network
+The External Network automatically receives IP addressing from your actual home router
+After IP addressing, make sure active directory is installed in order to create out domain
+Configure NAT and routing so the client on the private network can reach the internet through the domain controller
+Set DHCP on the Domain Controller in order for the Windows 10 Virtual Machine can be automatically be assigned an IP address
+On the domain controller, run the PowerShell Script to create 600+ users automatically
+Create another Virtual Machine and install Windows 10 to connect it to the internal private network
+Name it and join to the domain and log in with the client account.
+How to download Windows ISO
+
+You can click the Windows 10 ISO and the Windows Server 2019 links here to download both ISOS: https://www.microsoft.com/en-us/evalcenter/evaluate-windows-10-enterprise & https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019#Get-started
+
+Zoom image will be displayed
+
+Windows 10
+
+On the webpage click “Download the Iso — Enterprise”. It is going to ask you to enter some details in the form, once finished click download now to start the download.
+
+Zoom image will be displayed
+
+Windows Server 2019
+
+Zoom image will be displayed
+
+Downloading the file is going to be identical for Windows Server 2019. Click the “Download the ISO” button and it should take you to a similar form as the Windows 10 form you filled out before it lets you download.
+
+Make sure you download the ISO file and change the name to something you can remember or dedicating a folder so you can easily locate the ISO since they do download with a strange name.
+
+Configuring the First Virtual Machine as the Domain Controller (DC)
+
+Set the name as DC or Domain Controller of the Virtual Machine
+Set the version as “Windows Server 2022 (64 bit)
+Memory size is depending on how much ram your computer has and can handle, but 2048 is going to be optimal for this lab.
+Select Create Virtual Hard Disk in the Hard Disk Section
+Click Create
+Zoom image will be displayed
+
+Configuring 2 Network Adapters for the Virtual Machine
+
+You want to go to your settings tab and configure with this:
+
+General
+
+Click General
+Select advanced in the tabs
+Set “Shared Clipboard to Drag n ‘Drop to Biderectional. This will allow you to copy and paste information from your main computer to the virtual machine.
+Zoom image will be displayed
+
+It should look similar to this.
+
+System
+
+Click the system tab
+Select Processors
+Increase processors to 4 CPU’s. If you computer can handle it if not then leaving it at 1 is going to be completely fine as well.
+Zoom image will be displayed
+
+Network
+
+Click on Network
+Select Adapter 2
+Click Enable Network Adapter
+Select Internal Network
+Zoom image will be displayed
+
+For Adapter 1 it will be coming from your home network and make sure that you are able to get a MAC Address as well.
+
+
+Once you get here click which ever language/ time zone and keyboard you prefer or are in and then click next!
+
+
+You will be directed to this page! Make sure you select Desktop Experience. This is crucial since you won’t be able to get the GUI experience if you don’t choose the proper operating system. After click next and accept the terms and conditions in the next page.
+
+
+Once you arrive to this part of the setup make sure you choose the Custom Install so the VM can start from scratch.
+
+
+Once you get to this page you want to click next!
+
+
+This part of the project is going to take you anywhere from 2–10 minutes depending on the speed of your internet but once it is finished the VM is going to restart after the installation is done!
+
+Please please make sure you don’t push or accidently press any buttons unless you are instructed otherwise
+
+
+Once your VM restarts you will be lead to this page. As you can see the username is going to be Administrator, you can put any password that you want make sure you remember it because you will need it during this project! I decided to go with Password3 since it was easy and fast to remember!
+
+
+Now to log onto the actual computer itself, you are going to want to press Ctrl + Alt + Delete to get into the system.
+
+Hover Mouse to Input on the top of the VM
+Click on Keyboard
+Click Insert Ctrl + Alt + Delete and log in with the password you selected.
+The screen is going to be laggy and the mouse is going to be choppy, in order to make it smooth as possible we are going to want to Click Devices and Insert Guest Addition CD image.
+
+In the Virtual Machine you should head over to the explorer and click This PC, and under devices and drives you should click CD Drive VirtualBox Guest Additions.
+
+
+Next select the AMD file and install it. Click reboot manually and then shut down the VM.
+
+Start up the Virtual Machine and log back in and your Virtual machine should be running smoother now!
+
+Assigning IP address for the Internal Network
+
+
+When the screen loads up you should click the tiny network icon on the taskbar. That pop up will show and click the button the arrow is pointing at.
+
+You are going to get a window open like the one below. Right click on the network and click status. After doing that, another window will open. Click details to check the IPv4 address.
+
+Zoom image will be displayed
+
+Now, if you take a look at the IP address it should be 10.0.2.15. That is the one that is connected to the internet.
+
+As supposed if you find one like the image below you are going to see that it couldn’t connect to an IP address automatically it gave you the NIC address.
+
+Zoom image will be displayed
+
+Now Rename both network adapters to whatever you want as long as you are able to identify them easily.
+
+Now Assign the IP address to the internal netowrk. These are the steps:
+
+Rioght click on the Internal Network
+Select Properties
+Select Internet Protocol Version 4
+Use the settings below
+
+You are going to want it to look like the image above!
+
+Lastly make sure you rename the PC instead of having it as the default name it will be really helpful down the line when needed to find it! You are going to want to hit the Start menu button right click and select system.
+
+Zoom image will be displayed
+
+Install Active Directory Domain Service to create the Domain
+
+After logging back in you’re going to head over to the Server manager window and click Add Roles and Features.
+
+
+Click next until you reach Server Roles. Then locate Active Directory Domain Services from the list and make sure to only check that. After you want to hit Add Features
+
+
+Keep clicking next until you reach the install button, then click install. Once installed it should look like the photo below.
+
+
+Close that window and on the top right corner of the server manager is going to be a flag with a yellow triangle. Click it and Click “|Promote this serveer to a domain controller”. This will create the domain and installs the Active Directory Domain Services
+
+Zoom image will be displayed
+
+Once it is downloaded click it and it should open up another window that is going to say click add forest and use the root domain name to “mydomain.com”
+
+
+Enter next then enter your generic password that you used to log into the machine in my case it is going to be “Password3".
+
+
+Keep clicking next until you reach install from there. After it is done, the virtual machine will automatically restart.
+
+Install and Configure NAT and routing!
+
+Now once the computer restarts you are going to come across Mydomain/ Admin on the log in page. Use the same generic password we have been using to log in.
+
+
+Now we are going to create a dedicated admin account instead of using the built in one we have been using.
+
+Follow these steps!
+
+Click the start button
+Locate and click Windows Administrative Tools
+Click active Directory Users and Computers.
+Right click on mydomain.com
+Click New and select Organizational Unit
+Enter the name as _ADMINS and uncheck the protect container from accidental deletion and click okay.
+Right click on the _ADMINS folder, Click New and Select User.
+Once you do this you are going to want to add your full name, and on the user logon name you are going to put (a.first initial lastname@mydomain.com). So in my case its going to be a.fmurillo@mydomain.com. The A in the beginning signifies that I have admin access.
+
+Once that is good you are going to want to click next and then put the password we have been using to get in and its going to look like the picture below.
+
+
+Once you click next you are going to want to go to _Admins, you will find your name and then right click it and apply add to a group.
+
+Once that is done you re going to want to sign out of the DC and log into the account we just created.
+
+Click “Other User” and login
+
+Install RAS/NAT
+Here are the steps to take to do this quickly:
+
+To do this we will go to “Add Roles and Features”.
+Click next until reaching Server Roles.
+Locate Remote Access on the list.
+Click Next until you reach Role Services.
+Check Routing and click Add Features.
+Click next until you reach Install and click install.
+After it’s done you’re going to want to close it.
+After doing all the things listed above, select tools and click Routing and Remote Access.
+
+
+A window should pop up and now you want to right click the DC (local) button.
+
+
+After right clicking, “click the configure and enable routing and remote access” and click next
+
+Then select NAT to install NAT to allow internal clients to connect to the internet using one address.
+
+Zoom image will be displayed
+
+This is why we renamed the interfaces earlier. You are going to click the one that is connected to the internet and click next and click finish.
+
+Note: If you do not see the first option available, simply close the window and click tools and then remote access and do the whole right click thing. Just repeat the previous 3 steps.
+
+
+After it is finished you should see a green arrow by the DC local like the image above
+
+Set DHCP on the Domain Controller
+Here are the steps to take to do this quickly:
+
+To do this we will go to “Add Roles and Features”.
+Click next until reaching Server Roles.
+Locate DHCP on the list.
+Check DHCP and click Add Features.
+Click next until you reach Install and click install.
+After it’s done you’re going to want to close it.
+You should have something like this image below after it’s done.
+
+
+Setting Up the DHCP Scope
+The whole purpose of the DHCP is to enable client computers on the network to automatically be assigned IP addresses. So we’re creating a scope to assign IP addresses within this range.
+
+Here are the steps to do this:
+
+Go to tools and click DHCP.
+
+2. You are going to notice they are down so right click on the IPv4 and click New Scope
+
+
+3. Click next
+
+4. Enter a name of the scope. We will use the IP range as the name 172.16.0.100–200 .
+
+
+5. Set the IP Range using the following settings
+
+
+6. Skip the exclusions and delay.
+
+7. Put the lease duration as 8 days. This duration depends on your use case but for this use case we can just leave it as 8.
+
+8. Select, Yes I want to configure these options now and click next.
+
+9. Enter the IP address 172.16.0.1 and click add. Afterward, click next.
+
+
+10. Add the 172.16.0.1 to the list
+
+
+11. Ignore the WINS Server and click next.
+
+
+12. Make sure “Yes, I want to activate this scope now” and click next.
+
+13. Click Finish.
+
+14. Afterward right-click dc.mydomain.com and click Authorize.
+
+15. Now we have our DNS set up.
+
+
+Enable Browsing on the DC
+
+You are going to want to enable browsing to download the PowerShell script:
+
+Click configure this local server
+
+2. Disable the IE Enhanced Security Configuration
+
+
+Running the PowerShell Script
+
+In the VM open the link using internet explorer and enter the link https://github.com/joshmadakor1/AD_PS/blob/master/1_CREATE_USERS.ps1
+2. You should see a prompt to download the PowerShell Script
+
+
+3. Click Save As and save it to your desktop in the virtual Machine.
+
+4. Once done you are going to want to open the names.txt file and add your name to the top of the file and save it.
+
+5. Click the start menu and click Windows PowerShell.
+
+6. Right-click PowerShell ISE and select run as administrator
+
+7. After PowerShell ISE opens click the open button and locate the folder on the desktop with the PowerShell Scripts you downloaded
+
+8. Open 1_Create_USERS.
+
+
+9. A window like this would open. The script is essentially looping through the contents of the text file. While looping through this text it is sort of sorting the text content in the naming convention in for the users.
+
+
+10. Afterwards you are going to want to use the command “set_ExecutionPolicyUnrestricted” and click- YES-to-all
+
+
+11. Now you are going to want to Change Directory using the command in the image below and press enter
+
+
+12. Now click play to create all your accounts. It would ask if you want to run the script because it is from the internet and you just have to click run once.
+
+Note: You may see some errors while the script is running but that’s as a result of the duplicates in the names.txt file. You can ignore it, the script should still run.
+
+
+13. So you can go to the Active Directory Users and Computer Program you vistied before. Click the domain and select _USERS. YOu should have a list of the users created from the PowerShell.
+
+
+14. After it is done you can right click and refresh the domain and then right-click it again and select find to and try searching for your last name. you will be able to see both the admin account you made and the one from the script.
+
+Create Windows 10 Client to join the Internal Network
+Here are the steps:
+
+Open Virtual Box.
+Click New and Use the settings below.
+Zoom image will be displayed
+
+3. Click Create
+
+4. Use the settings below and click create
+
+
+5. Use these settings for General
+
+
+6. Use these setting for the System. Depending on your computer you can modify your systems.
+
+Zoom image will be displayed
+
+7. Use these settings for the network. This will help get a DHCP address from the domain controller.
+
+
+8. In the same way you added the Windows Serer 2019. Click the CLIENT! Virtual Machine and choose the Windows 10 ISO file.
+
+9. The installation is very similar to the Windows server. If during the installation you are asked to activate windows, Select you don’t have a product key. It may ask you to choose a Windows 10 version, Select PRO!!!!
+
+
+10. Wait for the install
+
+11. During this part of the set up if it asks you lets connect you to a network please select “ I don’t have internet”
+
+12. If you see this screen below. Select “continue with limited setup”
+
+Zoom image will be displayed
+
+Note: The set up changes all the time, so just make sure you create a local account and not a Microsoft account.
+
+13.Set the username as “user”.
+
+14. No need for a password, just hit next.
+
+15. You have the option to leave the privacy settings on and just hit accept or turn them all off and hit accept.
+
+16. Click not now for Cortana.
+
+17. This might take several minutes.
+
+18. To check if the internet works. Hit Win + R and type cmd.
+
+
+19. In the command line type ipconfig
+
+
+Note: If you do not see the Default Gateway, you probably forgot to add the ip address when setting the DHCP scope. It should have server options for a router.
+
+20. To check if the internet works. In the command line, enter the command ping www.google.com
+
+Zoom image will be displayed
+
+21. To rename the machine and join the domain. Right click the start button and click system.
+
+22. Click Rename this PC (Advanced)
+
+
+23. Click Change and enter these settings
+
+
+24. Enter the normal account details then click OK and you should see this on the next page.
+
+
+25. Click OK and watch the client restart after closing the Rename Advanced.
+
+26. Go back to your DC VM and log back in
+
+27. Enter Server Manager and go to tools and select DHCP
+
+28. Click the scope and go to the address leases. Then you will notice an IP address that was assigned to the client. It’s going to show the 1 lease that was automatically assigned.
+
+
+29. Open up the Active Directory Users and Computers. Select Computers and you should see Client1. This is going to indicate that it was successful and the computer is on the domain and any of the accounts can be used to access the computer!
+
+Zoom image will be displayed
+
+30. Now go back to the client machine and click other user. Instead of using the local user you can use any of the accounts on the domain to login to the machine now.
+
+
+31. This is going to do the whole windows set up again since you are technically signing in for the first time for a new user, Once that is complete go to the command line and type “whoami” and make sure that it is the correct user you inputted.
+
+
+Conclusion!
+
+In this project I was able to really learn a lot, and really grasp the fundamentals of how to add users, as well as how to navigate my way through Active Directory. This home lab is able to provide a place for me to get accustom to how companies virtually run their Active Directory cloud and practice what it is like to be a part of a help desk. I was also able to apply different troubleshooting techniques. Lastly it allowed me to apply networking concepts and get real hands on experiences in a project form!
