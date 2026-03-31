@@ -2,7 +2,12 @@ Active Directory Home Lab Integrating PowerShell Project
 
 ## Objective: 
 
-Active Directory in my opinion is one of the most crucial project to learn. Since it is quite literally used in over 90% of Fortune 1000 companies all over the United States. Being able to learn and master Active Directory would be expanding your knowledge and will give you an advantage compared to someone else that hasn’t worked on a project of this sort. To take advantage I have decided to take some time to learn more about active directory, and fully immerse myself into the world of IT. Always having that learning and building mindset in order for me to prepare me for a future job! 
+This project demonstrates the deployment and management if a Windows Active Directory environment with integrated PowerShell automation, It replicaets real-world IT tasks such as user provisioning, access control, and troubleshooting in a domain-based infrastructure. 
+
+## Key Contribution 
+- Deployed and configured a Windows Server Active Directory domain, including domain controller setup, Organizational Units (OUs), user/group management, and Group Policy enforcement
+- Developed PowerShell automation scripts to streamline adminstrative tasks such as bulk user creation, password resets, account unlocks, and group assignments.
+- Simulated real-world help desk scenarious, including onboarding users, resolving login/account lockouts, and troubleshooting permissions/access issues across the domain
 
 ## Skills Learned 
 - Domain Controllers
@@ -12,10 +17,45 @@ Active Directory in my opinion is one of the most crucial project to learn. Sinc
 - User account Creation and Management
 - Understanting Organizational Units
 
-## Tools Used
-- Virtual Box for both the Windows 11 virtual machine as well as the Windows Server 2022
-- PowerShell for Automation
-- Sysmon for Monitoring and Logging
+## Tech Stack 
+- Windows Server (Active Directory Domain Services)
+- Windows 10/11 Client
+- PowerShell
+- Group Policy Management
+- Virtualization (Parallels Desktop)
+
+## Lab Architecture 
+[ Windows 10 Client ]
+          |
+          | (Domain Join)
+          |
+[ Domain Controller (Windows Server) ]
+          |
+   -------------------------
+   |           |           |
+ [Users]     [Groups]     [GPOs]
+
+ ## Setup and Configuration 
+ 1. Domain Controller Setup
+- Installed Active Directory Domain Services (AD DS)
+- Promoted server to Domain Controller
+- Created custom domain
+
+2. User and Group Management
+- Created Organizational Units (OUs) for structure
+- Added users and assigned group memberships
+- Applied least privilege access principles
+3. Group Policy Configuration
+- Enforced password policies
+- Configured security settings
+- Applied restrictions to simulate enterprise environment
+
+## Key Skills Demonstrated 
+- Active Directory Adminstration
+- Identity and Access Management (IAM)
+- PowerShell Scripting and Automation
+- Troubleshooting (Login Issues, Permissions,Lockouts)
+- Enterprise IT Support Workflows
 
  ## What I Did 
 
