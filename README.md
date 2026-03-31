@@ -67,6 +67,10 @@ This project demonstrates the deployment and management if a Windows Active Dire
 
 This project gave not only hands-on experience with using Active Directory administration and supporting IT workflows, but it also really opened my eyes to how interesting and how much there is to learn with automation. In the process I was also about to stregnthen my ability to use Powershell to automate repetitive tasks and troubleshoot identity/access issues efficiently. 
 
+## Future Improvements 
+- Integrate Azure AD / Entra ID (Hybrid Environment)
+- Add SIEM monitoring (Splunk / Wazuh)
+- Expand PowerShell scripts for reporting and auditing 
 
 The process will be in the Write Up portion 
 
