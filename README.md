@@ -72,5 +72,24 @@ This project gave not only hands-on experience with using Active Directory admin
 - Add SIEM monitoring (Splunk / Wazuh)
 - Expand PowerShell scripts for reporting and auditing 
 
+Screenshots
+
+<img width="679" height="488" alt="Screenshot 2026-03-31 at 10 57 56 AM" src="https://github.com/user-attachments/assets/e95beb42-c2d2-499e-b35e-592ba592b821" />
+
+- Displays the Active Directory environment with organized Orgenazational Units (OUs), users, and security groups configured to simulate a real enterprise structure 
+- Active Directory structure with OUs, users, and group-based access control
+
+<img width="679" height="349" alt="Screenshot 2026-03-31 at 10 57 22 AM" src="https://github.com/user-attachments/assets/bc15c78f-9d47-4692-8307-820ad57a0c3e" />
+
+- Shows execution of PowerShell sscripts used to automate administrative tasks such as bulk user creation, password resets, and account management 
+- PowerShell script execution for user provision and account management 
+
+<img width="664" height="526" alt="Screenshot 2026-03-31 at 10 56 35 AM" src="https://github.com/user-attachments/assets/91553a4f-5bbd-43a0-a431-5536211f9bd5" />
+
+- Demonstrates a Window client successfully joined to the domain, validating authentication, applied policies, and access to domain resources 
+- Domain-joined workstation validating authentication and policy enforcement 
+
+
+
 The process will be in the Write Up portion 
 
