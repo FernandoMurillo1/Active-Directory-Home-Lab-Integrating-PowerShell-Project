@@ -1,95 +1,95 @@
-Active Directory Home Lab Integrating PowerShell Project 
+# Active Directory Home Lab with PowerShell Automation
 
-## Objective: 
+## Objective
 
-This project demonstrates the deployment and management if a Windows Active Directory environment with integrated PowerShell automation, It replicaets real-world IT tasks such as user provisioning, access control, and troubleshooting in a domain-based infrastructure. 
+This project demonstrates the deployment and management of a Windows Active Directory environment with integrated PowerShell automation. It replicates real-world IT tasks such as user provisioning, access control, and troubleshooting in a domain-based infrastructure.
 
-## Key Contribution 
+## Key Contributions
+
 - Deployed and configured a Windows Server Active Directory domain, including domain controller setup, Organizational Units (OUs), user/group management, and Group Policy enforcement
-- Developed PowerShell automation scripts to streamline adminstrative tasks such as bulk user creation, password resets, account unlocks, and group assignments.
-- Simulated real-world help desk scenarious, including onboarding users, resolving login/account lockouts, and troubleshooting permissions/access issues across the domain
+- Developed PowerShell automation scripts to streamline administrative tasks such as bulk user creation, password resets, account unlocks, and group assignments
+- Simulated real-world help desk scenarios, including onboarding users, resolving login/account lockouts, and troubleshooting permissions/access issues across the domain
 
-## Skills Learned 
-- Domain Controllers
-- Configuring Group Policys
-- Troubleshooting
-- Security Administration
-- User account Creation and Management
-- Understanting Organizational Units
+## Tech Stack
 
-## Tech Stack 
 - Windows Server (Active Directory Domain Services)
 - Windows 10/11 Client
 - PowerShell
 - Group Policy Management
 - Virtualization (Parallels Desktop)
 
-## Lab Architecture 
-[ Windows 10 Client ]
-          |
-          | (Domain Join)
-          |
-[ Domain Controller (Windows Server) ]
-          |
-   -------------------------
-   |           |           |
- [Users]     [Groups]     [GPOs]
+## Lab Architecture
 
- ## Setup and Configuration 
- 1. Domain Controller Setup
-- Installed Active Directory Domain Services (AD DS)
-- Promoted server to Domain Controller
-- Created custom domain
+```
++------------------+          Domain Join          +----------------------------------+
+|  Windows 10       |  ----------------------->     |  Domain Controller                |
+|  Client            |                               |  (Windows Server)                 |
++------------------+                               +----------------------------------+
+                                                        |
+                                                        |-- Organizational Units (OUs)
+                                                        |-- Users
+                                                        |-- Security Groups
+                                                        |-- Group Policy Objects (GPOs)
+```
 
-2. User and Group Management
-- Created Organizational Units (OUs) for structure
-- Added users and assigned group memberships
-- Applied least privilege access principles
-3. Group Policy Configuration
-- Enforced password policies
-- Configured security settings
-- Applied restrictions to simulate enterprise environment
+## Setup and Configuration
 
-## Key Skills Demonstrated 
-- Active Directory Adminstration
+1. **Domain Controller Setup**
+   - Installed Active Directory Domain Services (AD DS)
+   - Promoted server to Domain Controller
+   - Created custom domain
+
+2. **User and Group Management**
+   - Created Organizational Units (OUs) for structure
+   - Added users and assigned group memberships
+   - Applied least privilege access principles
+
+3. **Group Policy Configuration**
+   - Enforced password policies
+   - Configured security settings
+   - Applied restrictions to simulate an enterprise environment
+
+## PowerShell Scripts
+
+See [`/scripts`](./scripts) for the automation scripts used in this lab:
+
+- `New-BulkUsers.ps1` — bulk user creation from a CSV list
+- `Reset-UserPassword.ps1` — password reset and forced change at next logon
+- `Unlock-UserAccount.ps1` — account unlock and lockout status check
+- `Add-UserToGroup.ps1` — group assignment automation
+
+## Key Skills Demonstrated
+
+- Active Directory Administration
 - Identity and Access Management (IAM)
 - PowerShell Scripting and Automation
-- Troubleshooting (Login Issues, Permissions,Lockouts)
+- Troubleshooting (login issues, permissions, lockouts)
 - Enterprise IT Support Workflows
 
- ## What I Did 
+## What I Did
 
- - Deployed and configured a Windows Server Active Directory environment, inlcuding domain controller setup, OU structure, and User/group management and Group Policy enforcement
- - Built Powershell automation scripts to streamline user provisioning, password resets, account unlocks, and group assignments, reducing manual administrative effort
- - Simulated real world IT support scenarios such as onboarding users, troubleshooting login issues, resolving account lockouts, and validading access permissions across the domain.
+- Deployed and configured a Windows Server Active Directory environment, including domain controller setup, OU structure, user/group management, and Group Policy enforcement
+- Built PowerShell automation scripts to streamline user provisioning, password resets, account unlocks, and group assignments, reducing manual administrative effort
+- Simulated real-world IT support scenarios such as onboarding users, troubleshooting login issues, resolving account lockouts, and validating access permissions across the domain
 
-## What I learned 
+## What I Learned
 
-This project gave not only hands-on experience with using Active Directory administration and supporting IT workflows, but it also really opened my eyes to how interesting and how much there is to learn with automation. In the process I was also about to stregnthen my ability to use Powershell to automate repetitive tasks and troubleshoot identity/access issues efficiently. 
+This project gave me hands-on experience with Active Directory administration and IT support workflows, and it deepened my interest in automation. I strengthened my ability to use PowerShell to automate repetitive tasks and to troubleshoot identity/access issues efficiently.
 
-## Future Improvements 
-- Integrate Azure AD / Entra ID (Hybrid Environment)
-- Add SIEM monitoring (Splunk / Wazuh)
-- Expand PowerShell scripts for reporting and auditing 
+## Future Improvements
 
-Screenshots
+- Integrate Azure AD / Entra ID (hybrid environment)
+- Add SIEM monitoring (Wazuh) for domain activity
+- Expand PowerShell scripts for reporting and auditing
 
-<img width="679" height="488" alt="Screenshot 2026-03-31 at 10 57 56 AM" src="https://github.com/user-attachments/assets/e95beb42-c2d2-499e-b35e-592ba592b821" />
+## Screenshots
 
-- Displays the Active Directory environment with organized Orgenazational Units (OUs), users, and security groups configured to simulate a real enterprise structure 
-- Active Directory structure with OUs, users, and group-based access control
+See [`/screenshots`](./screenshots) for full-size images.
 
-<img width="679" height="349" alt="Screenshot 2026-03-31 at 10 57 22 AM" src="https://github.com/user-attachments/assets/bc15c78f-9d47-4692-8307-820ad57a0c3e" />
+| Screenshot | Description |
+|---|---|
+| AD structure | Active Directory environment with organized OUs, users, and security groups configured to simulate a real enterprise structure |
+| PowerShell execution | Execution of PowerShell scripts used to automate administrative tasks such as bulk user creation, password resets, and account management |
+| Domain-joined client | Windows client successfully joined to the domain, validating authentication, applied policies, and access to domain resources |
 
-- Shows execution of PowerShell sscripts used to automate administrative tasks such as bulk user creation, password resets, and account management 
-- PowerShell script execution for user provision and account management 
-
-<img width="664" height="526" alt="Screenshot 2026-03-31 at 10 56 35 AM" src="https://github.com/user-attachments/assets/91553a4f-5bbd-43a0-a431-5536211f9bd5" />
-
-- Demonstrates a Window client successfully joined to the domain, validating authentication, applied policies, and access to domain resources 
-- Domain-joined workstation validating authentication and policy enforcement 
-
-
-
-The process will be in the Write Up portion 
-
+Full process write-up: [`Write-Up.md`](./Write-Up.md)
